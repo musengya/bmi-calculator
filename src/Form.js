@@ -3,13 +3,10 @@ import React from "react";
 export default class Form extends React.Component {
     render() {
         return (
-            <div>
-                <form>
-                <label>Weight</label>
-                    <input type="text" placeholder="This is a palceholder" />
-                    <label>Height</label>
-                    <input type="text" placeholder="This is a placeholder" />
-                </form>
+            <div className="row">
+                <label>{this.props.label}</label>
+                <input style={{padding:"20px", marginLeft:"10px"}}type="text" placeholder={this.props.placeholder} />
+                
               
             </div>
         )
