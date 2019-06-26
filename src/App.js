@@ -5,8 +5,14 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
-                <Form />
+                <div className="row">
+                    <Form />
+                </div>
+                <div className="row">
+                    <Form />
+                </div>
             </div>
+
         )
     }
 }

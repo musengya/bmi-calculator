@@ -5,8 +5,10 @@ export default class Form extends React.Component {
         return (
             <div>
                 <form>
-                <label>Label</label>
-                <input type="text" placeholder="This is a palceholder" />
+                <label>Weight</label>
+                    <input type="text" placeholder="This is a palceholder" />
+                    <label>Height</label>
+                    <input type="text" placeholder="This is a placeholder" />
                 </form>
               
             </div>
