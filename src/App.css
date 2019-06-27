@@ -7,10 +7,17 @@ body {
     display: flex;
     justify-content: center;
   }
-  /*.row {
-    display: block;
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-}*/
+  input[type="text"] {
+    padding: 10px;
+    display: flex;
+}
+label {
+  font-weight: bold;
+}
+input[type="submit"] {
+  padding: 10px;
+  font-weight: bold;
+}
+.bmirange {
+  font-weight: bold;
+}

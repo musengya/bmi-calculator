@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 
 export default class Form extends React.Component {
     constructor(props) {
@@ -6,14 +6,14 @@ export default class Form extends React.Component {
         this.state = {
             value: "",
             weight: "",
-            height: "",
-            bmi: ""
+            height: ""
+           
             
         }
         this.handleChange = this.handleChange.bind(this);
         this.heightChange = this.heightChange.bind(this);
         this.weightChange = this.weightChange.bind(this);
-        this.handleClick = this.handleClick.bind(this);
+        this.handleSubmit= this.handleSubmit.bind(this);
    
     }
     heightChange(heightValue) {
@@ -26,13 +26,9 @@ export default class Form extends React.Component {
             weight: weightValue
         })
     }
-    handleClick() {
-        let bmiValue = (this.state.weight / this.state.height);
-        this.setState({
-            bmi: bmiValue
-        })
-        let bmiClass = this.getBmi(bmiValue);
-        this.setState({ bmiClass: bmiClass });
+    handleSubmit(e) {
+        e.preventDefault();
+        this.computeBMI();
     }
    
     handleChange(event) {
@@ -48,7 +44,7 @@ export default class Form extends React.Component {
                    
                 <div className="row">
               
-                    <form>
+                    <form onSubmit= {this.handleSubmit}>
                 <label>{this.props.label}</label>
                 <input
                     style={{ padding: "20px", marginLeft: "10px" }}
@@ -64,4 +60,4 @@ export default class Form extends React.Component {
             
         )
     }
-}
+}*/
