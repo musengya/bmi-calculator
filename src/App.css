@@ -7,4 +7,10 @@ body {
     display: flex;
     justify-content: center;
   }
- 
+  /*.row {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}*/
