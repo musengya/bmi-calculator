@@ -128,16 +128,16 @@ class App extends Component {
 <br />
                     <div className="bmirange">
                         <div>
-                            Obese: 30 or more
+                            Obese: <span className="range">30 or more</span>
                         </div>
                         <div>
-                            Overweight: 25 to 29.9
+                            Overweight: <span className="range">25 to 29.9</span> 
                         </div>
                         <div>
-                            Normal: 18.5 to 24.9
+                            Normal: <span className="range">18.5 to 24.9</span>
                         </div>
                         <div>
-                            Underweight: 18.4 and below
+                            Underweight: <span className="range">18.4 and below</span>
                         </div>
                     </div>
                 </form>

@@ -21,3 +21,6 @@ input[type="submit"] {
 .bmirange {
   font-weight: bold;
 }
+.range{
+  font-weight: normal;
+}
