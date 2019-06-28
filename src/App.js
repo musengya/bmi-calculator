@@ -125,7 +125,6 @@ class App extends Component {
                         It's currently  {this.state.time}  where you are living. <br />
                         Your BMI is {this.state.bmi} <br />
                     </label>
-                    <label>{this.state.message}</label>
 <br />
                     <div className="bmirange">
                         <div>
