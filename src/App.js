@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import "./App.css";
 
+
 class App extends Component {
 
     constructor(props) {
@@ -15,6 +16,7 @@ class App extends Component {
                 message: "",
                 time: new Date().toLocaleTimeString()
             };
+        //binding the methods used to this
         this.handleSubmit = this.handleSubmit.bind(this);
         this.heightChange = this.heightChange.bind(this);
         this.weightChange = this.weightChange.bind(this);
@@ -83,7 +85,7 @@ class App extends Component {
                 <div className="App-header">
                     <h2>BMI Calculator</h2>
                 </div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}> //A form to containing all the input types used
                     <label>
                         Please enter your name
             </label>
