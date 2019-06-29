@@ -20,7 +20,7 @@ class App extends Component {
         this.weightChange = this.weightChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.ticker = this.ticker.bind(this);
-        this.blur = this.blur.bind(this);
+        this.getBMI = this.getBMI.bind(this);
         this.calculateBMI = this.calculateBMI.bind(this);
     }
 
@@ -45,7 +45,7 @@ class App extends Component {
         console.log(e.target);
         this.setState({ name: e.target.value });
     }
-    blur(e) {
+    getBMI(e) {
         this.calculateBMI();
     }
 
