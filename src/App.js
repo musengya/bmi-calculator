@@ -1,21 +1,17 @@
-
 import React, { Component } from "react";
 import "./App.css";
 
-
 class App extends Component {
-
     constructor(props) {
         super(props);
-        this.state =
-            {
-                name: "",
-                weight: "",
-                height: "",
-                bmi: "",
-                message: "",
-                time: new Date().toLocaleTimeString()
-            };
+        this.state = {
+            name: "",
+            weight: "",
+            height: "",
+            bmi: "",
+            message: "",
+            time: new Date().toLocaleTimeString()
+        };
         //binding the methods used to this
         this.handleSubmit = this.handleSubmit.bind(this);
         this.heightChange = this.heightChange.bind(this);
@@ -31,47 +27,34 @@ class App extends Component {
     }
 
     ticker() {
-        this.setState({ time: new Date().toLocaleTimeString() })
+        this.setState({ time: new Date().toLocaleTimeString() });
     }
 
     heightChange(e) {
         this.setState({ height: e.target.value });
         e.preventDefault();
     }
+
     weightChange(e) {
         this.setState({ weight: e.target.value });
         e.preventDefault();
     }
+
     handleChange(e) {
         e.preventDefault();
-        console.log(e.target);
         this.setState({ name: e.target.value });
     }
-    getBMI(e) {
+
+    getBMI() {
         this.calculateBMI();
     }
 
     calculateBMI() {
-        let bmi = (this.state.weight / this.state.height / this.state.height);
-        let message = "";
-        if (bmi >= 18.5 && bmi <= 24.99) {
-            message = "You are in a healthy weight range";
-        }
-        else if (bmi >= 25 && bmi <= 29.9) {
-            message = "You are overweight";
-        }
-        else if (bmi >= 30) {
-            message = "You are obese";
-        }
-        else if (bmi < 18.5) {
-            message = "You are under weight";
-        }
-        this.setState({ message: message });
+        let bmi = this.state.weight / this.state.height / this.state.height;
+
         this.setState({
-            bmi: bmi
-        })
-
-
+            bmi: bmi.toFixed(1)
+        });
     }
 
     handleSubmit(e) {
@@ -80,74 +63,101 @@ class App extends Component {
     }
 
     render() {
+        const { name, weight, height, bmi } = this.state;
+        const buttonDisabled = !name || !weight || !height;
+
         return (
             <div className="App">
                 <div className="App-header">
                     <h2>BMI Calculator</h2>
                 </div>
-                <form onSubmit={this.handleSubmit}> //A form to containing all the input types used
-                    <label>
-                        Please enter your name
-            </label>
+                <form onSubmit={this.handleSubmit}>
+                    <label>Please enter your name</label>
                     <input
                         type="text"
                         name="name"
+                        data-testid="name-input"
                         value={this.state.name}
                         onChange={this.handleChange}
                     />
-                    <label>
-                        <br />
-                        Enter your weight in kgs:
-            </label>
+                    <br />
+                    <label>Enter your weight in kgs:</label>
                     <input
-                        type="text"
+                        type="number"
                         name="weight"
+                        data-testid="weight-input"
                         value={this.state.weight}
                         onChange={this.weightChange}
                     />
-                    <label>
-                        <br />
-                        Enter your height in metres:
-            </label>
+                    <br />
+                    <label>Enter your height in metres:</label>
                     <input
-                        type="text"
+                        type="number"
                         name="height"
+                        data-testid="height-input"
                         value={this.state.height}
                         onChange={this.heightChange}
                     />
-
                     <br />
                     <input
                         type="submit"
+                        data-testid="submit-button"
+                        disabled={buttonDisabled}
                         value="Submit"
                     />
-                    <br /> <br />
-                    <label style={{ fontWeight: "normal" }}>
-                        Hello {this.state.name}, <br />
-                        It's currently  {this.state.time}  where you are living. <br />
-                        Your BMI is {this.state.bmi} <br />
-                    </label>
-<br />
-                    <div className="bmirange">
-                        <div>
-                            Obese: <span className="range">30 or more</span>
-                        </div>
-                        <div>
-                            Overweight: <span className="range">25 to 29.9</span> 
-                        </div>
-                        <div>
-                            Normal: <span className="range">18.5 to 24.9</span>
-                        </div>
-                        <div>
-                            Underweight: <span className="range">18.4 and below</span>
-                        </div>
+                    <br />
+                    <br />
+                    <div data-testid="greeting-text">
+                        Hello {this.state.name}
                     </div>
+                    <div data-testid="current-time">
+                        It's currently {this.state.time} where you are living.
+                    </div>
+                    <div data-testid="bmi-score">
+                        Your BMI is {this.state.bmi}
+                    </div>
+                    <br />
+                    <table className="bmirange">
+                        <tbody>
+                            <tr
+                                data-testid="bmi-row"
+                                className={bmi >= 30 ? "your-bmi" : ""}
+                            >
+                                <td>Obese:</td>
+                                <td>30 or more</td>
+                            </tr>
+                            <tr
+                                data-testid="bmi-row"
+                                className={
+                                    bmi >= 25 && bmi <= 29.9 ? "your-bmi" : ""
+                                }
+                            >
+                                <td>Overweight:</td>
+                                <td>25 to 29.9</td>
+                            </tr>
+                            <tr
+                                data-testid="bmi-row"
+                                className={
+                                    bmi >= 18.5 && bmi <= 24.9 ? "your-bmi" : ""
+                                }
+                            >
+                                <td>Normal:</td>
+                                <td>18.5 to 24.9</td>
+                            </tr>
+                            <tr
+                                data-testid="bmi-row"
+                                className={
+                                    bmi > 0 && bmi <= 18.4 ? "your-bmi" : ""
+                                }
+                            >
+                                <td>Underweight:</td>
+                                <td>18.4 and below</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </form>
-
             </div>
         );
     }
 }
 export default App;
-
-

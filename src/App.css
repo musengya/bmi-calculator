@@ -1,26 +1,41 @@
 body {
     padding: 50px;
-    background-color: #66CCFF;
+    background-color: #66ccff;
     font-family: sans-serif;
-  }
-  #root {
+}
+
+#root {
     display: flex;
     justify-content: center;
-  }
-  input[type="text"] {
+}
+
+input[type="text"],
+input[type="number"] {
     padding: 10px;
     display: flex;
 }
+
 label {
-  font-weight: bold;
+    font-weight: bold;
 }
+
 input[type="submit"] {
-  padding: 10px;
-  font-weight: bold;
+    padding: 10px;
+    font-weight: bold;
 }
+
 .bmirange {
-  font-weight: bold;
+    border-collapse: collapse;
 }
-.range{
-  font-weight: normal;
+
+.bmirange tbody tr td:nth-child(1) {
+    font-weight: bold;
+}
+
+.bmirange tbody tr td:nth-child(2) {
+    font-weight: normal;
+}
+
+.bmirange tbody tr.your-bmi {
+    background-color: lightgreen;
 }
