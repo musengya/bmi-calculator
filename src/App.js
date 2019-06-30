@@ -85,6 +85,7 @@ class App extends Component {
                     <input
                         type="number"
                         name="weight"
+                        step="0.1"
                         data-testid="weight-input"
                         value={this.state.weight}
                         onChange={this.weightChange}
@@ -94,6 +95,7 @@ class App extends Component {
                     <input
                         type="number"
                         name="height"
+                        step ="0.1"
                         data-testid="height-input"
                         value={this.state.height}
                         onChange={this.heightChange}
